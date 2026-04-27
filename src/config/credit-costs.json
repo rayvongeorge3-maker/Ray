@@ -1,0 +1,9 @@
+{
+  "director_plan": 1,
+  "image_generation_per_scene": 2,
+  "video_generation_per_scene": 8,
+  "regenerate_scene_image": 2,
+  "regenerate_scene_video": 8,
+  "export": 1,
+  "premium_audio_generation": 2
+}
