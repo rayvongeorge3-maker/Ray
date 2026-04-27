@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAST LINE: EARTHFALL</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">OPEN-WORLD DEFENSE SURVIVAL RPG</p>
+        <h1>LAST LINE: <span>EARTHFALL</span></h1>
+        <p class="hook">
+          A hyper-realistic open-world defense survival game where your body evolves every level while intelligent enemy waves
+          overrun Earth’s final safe zones.
+        </p>
+        <div class="cta-row">
+          <button id="startRunBtn">Start Simulation</button>
+          <button id="showLoreBtn" class="secondary">View Story Brief</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel two-col">
+        <article>
+          <h2>Core Loop</h2>
+          <ol>
+            <li>Spawn into a ruined open zone and gather resources.</li>
+            <li>Choose a defense point and build traps or barricades.</li>
+            <li>Survive escalating attacker waves with adaptive AI behaviors.</li>
+            <li>Select one of three evolution cards after each wave.</li>
+            <li>Extract for rewards or push deeper for higher risk.</li>
+          </ol>
+        </article>
+        <article>
+          <h2>Adaptive Evolution Live Feed</h2>
+          <div id="adaptiveCard" class="adaptive-card">
+            <div class="eye-state" id="eyeState">BLUE • SCANNING</div>
+            <h3 id="phaseTitle">Early Survival (Lv 1-3)</h3>
+            <p id="phaseDescription">Clean transparent anatomy. Balanced stamina. Baseline combat response.</p>
+            <div class="stats" id="statsList"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <h2>Wave Defense Prototype</h2>
+        <p class="sub">Choose an upgrade after each wave and watch the Adaptive evolve.</p>
+
+        <div class="sim-grid">
+          <div class="status-box">
+            <h3>Run Status</h3>
+            <p><strong>Wave:</strong> <span id="wave">0</span></p>
+            <p><strong>Threat Tier:</strong> <span id="threat">Dormant</span></p>
+            <p><strong>Defense Integrity:</strong> <span id="integrity">100%</span></p>
+            <p><strong>Resources:</strong> <span id="resources">120</span></p>
+            <button id="nextWaveBtn">Launch Next Wave</button>
+          </div>
+
+          <div class="status-box">
+            <h3>Active Attackers</h3>
+            <ul id="enemyList"></ul>
+          </div>
+        </div>
+
+        <h3 class="upgrade-heading">Mid-Wave Upgrade Choices</h3>
+        <div class="upgrades" id="upgradeCards"></div>
+      </section>
+
+      <section class="panel two-col">
+        <article>
+          <h2>Enemy Classes</h2>
+          <ul class="tags">
+            <li>Fractured (Swarms)</li>
+            <li>Runners (Flankers)</li>
+            <li>Brutes (Siege)</li>
+            <li>Watchers (Disruption)</li>
+            <li>Hollow Giants (Elite)</li>
+            <li>Burrowers (Ambush)</li>
+            <li>Core Entity (Boss)</li>
+          </ul>
+        </article>
+        <article>
+          <h2>Story Foundation</h2>
+          <p id="storyText">
+            Governments collapsed after biomechanical corruption spread across Earth. The final defense project activated one
+            adaptive bio-soldier to secure remaining defense cores and hold the line.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Hold the line. Upgrade. Adapt. Survive.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
