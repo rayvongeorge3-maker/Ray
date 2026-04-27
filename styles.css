@@ -1,0 +1,147 @@
+:root {
+  --bg: #0b0d10;
+  --panel: #141922;
+  --edge: #2c3648;
+  --text: #e6edf7;
+  --sub: #9fb0c7;
+  --accent: #60a5fa;
+  --warn: #fb923c;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #1c2330 0%, var(--bg) 45%);
+  line-height: 1.45;
+}
+
+.hero {
+  min-height: 52vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.2rem;
+  background:
+    linear-gradient(140deg, rgba(17, 24, 39, 0.85), rgba(0, 0, 0, 0.78)),
+    url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80') center/cover;
+  border-bottom: 1px solid #202a3d;
+}
+
+.eyebrow { color: #9ca3af; letter-spacing: 0.14em; font-size: 0.75rem; }
+h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0.5rem 0; }
+h1 span { color: var(--warn); }
+.hook { max-width: 850px; margin: 0 auto 1.2rem; color: #c4d0e0; }
+
+.cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+button {
+  border: 1px solid #3f66a6;
+  background: linear-gradient(180deg, #2f5ea6, #1e3f6e);
+  color: white;
+  padding: 0.65rem 1rem;
+  border-radius: 0.55rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+button.secondary { background: transparent; border-color: #5d6a80; }
+button:hover { filter: brightness(1.08); }
+
+main { width: min(1100px, 92vw); margin: 1.5rem auto 2rem; display: grid; gap: 1rem; }
+.panel {
+  background: linear-gradient(180deg, rgba(20, 25, 34, 0.95), rgba(12, 15, 22, 0.95));
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+}
+.two-col {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+h2, h3 { margin-top: 0.2rem; }
+.sub { color: var(--sub); margin-top: -0.3rem; }
+
+.adaptive-card {
+  border: 1px solid #2f415c;
+  background: #0f1621;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+.eye-state {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  border: 1px solid #2f5ea6;
+  color: #7dc2ff;
+}
+
+.stats { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.6rem; }
+.stats span {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.45rem;
+  border-radius: 8px;
+  background: #1f2937;
+  border: 1px solid #334155;
+}
+
+.sim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.85rem;
+}
+.status-box {
+  background: #0f1621;
+  border: 1px solid #2f415c;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+#enemyList { margin: 0; padding-left: 1rem; color: #ced8e7; }
+#enemyList li { margin-bottom: 0.25rem; }
+
+.upgrade-heading { margin-top: 1rem; }
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.7rem;
+}
+.upgrade-card {
+  border: 1px solid #3a4b66;
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: #111a28;
+}
+.upgrade-card button {
+  width: 100%;
+  margin-top: 0.4rem;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tags li {
+  background: #192334;
+  border: 1px solid #31425d;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+footer {
+  text-align: center;
+  color: #9ca3af;
+  padding: 1rem;
+  border-top: 1px solid #1f2937;
+}
