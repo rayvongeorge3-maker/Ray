@@ -1,0 +1,73 @@
+{
+  "project_title": "When Gravity Doubles Overnight",
+  "creative_angle": "A fast escalation science short that visualizes daily life collapsing under doubled gravity.",
+  "hook": "Cars scrape asphalt as people suddenly struggle to stand.",
+  "voiceover_script": [
+    "It happened at sunrise: gravity doubled.",
+    "Athletes collapse first as movement turns brutal.",
+    "Bridges groan and traffic freezes in place.",
+    "Hospitals overflow while power grids begin to fail.",
+    "By nightfall, cities adapt or shut down."
+  ],
+  "scene_plan": [
+    {
+      "scene_number": 1,
+      "scene_title": "Instant Impact",
+      "scene_goal": "Open mid-action with immediate physical shock.",
+      "script_line": "It happened at sunrise: gravity doubled.",
+      "visual_prompt": "9:16 cinematic realism, crowded crosswalk at dawn, people stagger forward and drop to one knee under sudden force, shopping bags tear and spill, dramatic cool backlight with dust in air, handheld chest-level camera pushing through crowd, visible panic and body strain.",
+      "camera_notes": "Handheld forward push, slight shake, close to subjects.",
+      "duration_sec": 5
+    },
+    {
+      "scene_number": 2,
+      "scene_title": "Body Limits",
+      "scene_goal": "Escalate with athletic failure.",
+      "script_line": "Athletes collapse first as movement turns brutal.",
+      "visual_prompt": "Outdoor track, sprinter launches then stumbles hard as legs fail, muscles trembling, intense sidelight and long shadows, slow-motion fragments mixed with real-time, low angle tracking beside lane markings.",
+      "camera_notes": "Low-angle side track, brief slow motion accent.",
+      "duration_sec": 5
+    },
+    {
+      "scene_number": 3,
+      "scene_title": "Infrastructure Strain",
+      "scene_goal": "Show broader city consequences.",
+      "script_line": "Bridges groan and traffic freezes in place.",
+      "visual_prompt": "Wide city bridge buckling slightly under heavy traffic, sparks from undercarriage, buses crawl with hazard lights, gray storm sky, cinematic telephoto compression, subtle dolly zoom to increase tension.",
+      "camera_notes": "Telephoto compression, slow dolly zoom.",
+      "duration_sec": 6
+    },
+    {
+      "scene_number": 4,
+      "scene_title": "Emergency Surge",
+      "scene_goal": "Raise stakes with human cost.",
+      "script_line": "Hospitals overflow while power grids begin to fail.",
+      "visual_prompt": "Emergency room corridor full of stretchers and staff pushing with effort, flickering lights, backup power alarms, high-contrast practical lighting, fast whip-pan transitions between stations.",
+      "camera_notes": "Whip pans and urgent closeups.",
+      "duration_sec": 6
+    },
+    {
+      "scene_number": 5,
+      "scene_title": "Adapt or Collapse",
+      "scene_goal": "Conclude with a satisfying survival turn.",
+      "script_line": "By nightfall, cities adapt or shut down.",
+      "visual_prompt": "Nighttime rooftop community rigging pulley systems and support frames, determined faces, neon emergency lighting against dark skyline, smooth crane rise revealing pockets of adaptation across the city.",
+      "camera_notes": "Crane rise reveal for ending payoff.",
+      "duration_sec": 6
+    }
+  ],
+  "titles": [
+    "What If Gravity Doubled Tonight?",
+    "24 Hours Under Double Gravity",
+    "The Day Movement Became Impossible"
+  ],
+  "hashtags": [
+    "#science",
+    "#whatif",
+    "#shorts",
+    "#ai",
+    "#cinematic"
+  ],
+  "thumbnail_prompt": "Split-frame face strain + collapsing street perspective, high contrast, bold text area left: 'GRAVITY x2'.",
+  "caption_style": "bold_kinetic"
+}

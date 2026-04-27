@@ -1,0 +1,25 @@
+{
+  "free": {
+    "monthly_credits": 120,
+    "watermark": true,
+    "max_active_projects": 3,
+    "max_saved_characters": 1,
+    "queue_priority": "standard"
+  },
+  "creator": {
+    "monthly_credits": 1200,
+    "watermark": false,
+    "max_active_projects": 30,
+    "max_saved_characters": 10,
+    "queue_priority": "fast"
+  },
+  "pro": {
+    "monthly_credits": 4000,
+    "watermark": false,
+    "max_active_projects": 100,
+    "max_saved_characters": 100,
+    "queue_priority": "priority",
+    "advanced_character_memory": true,
+    "max_duration_sec": 90
+  }
+}

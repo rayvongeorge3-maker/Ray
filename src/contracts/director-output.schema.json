@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forgeflowx.app/schemas/director-output.schema.json",
+  "title": "DirectorOutput",
+  "type": "object",
+  "required": [
+    "project_title",
+    "creative_angle",
+    "hook",
+    "voiceover_script",
+    "scene_plan",
+    "titles",
+    "hashtags",
+    "thumbnail_prompt",
+    "caption_style"
+  ],
+  "properties": {
+    "project_title": { "type": "string", "minLength": 1 },
+    "creative_angle": { "type": "string", "minLength": 1 },
+    "hook": { "type": "string", "minLength": 1 },
+    "voiceover_script": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "scene_plan": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_number",
+          "scene_title",
+          "scene_goal",
+          "script_line",
+          "visual_prompt",
+          "camera_notes",
+          "duration_sec"
+        ],
+        "properties": {
+          "scene_number": { "type": "integer", "minimum": 1 },
+          "scene_title": { "type": "string", "minLength": 1 },
+          "scene_goal": { "type": "string", "minLength": 1 },
+          "script_line": { "type": "string", "minLength": 1 },
+          "visual_prompt": { "type": "string", "minLength": 1 },
+          "camera_notes": { "type": "string", "minLength": 1 },
+          "duration_sec": { "type": "integer", "minimum": 2, "maximum": 12 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "titles": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "hashtags": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "items": { "type": "string", "minLength": 2 }
+    },
+    "thumbnail_prompt": { "type": "string", "minLength": 1 },
+    "caption_style": {
+      "type": "string",
+      "enum": ["bold_kinetic", "clean_minimal", "cinematic_subtitle"]
+    }
+  },
+  "additionalProperties": false
+}

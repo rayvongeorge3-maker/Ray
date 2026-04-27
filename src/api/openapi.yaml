@@ -1,0 +1,237 @@
+openapi: 3.1.0
+info:
+  title: ForgeFlow X API
+  version: 0.1.0
+  description: Contract-first API for ForgeFlow X MVP generation pipeline.
+servers:
+  - url: https://api.forgeflowx.app
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    UUID:
+      type: string
+      format: uuid
+    CreateProjectRequest:
+      type: object
+      required: [title, idea_prompt, platform, style_preset, duration_target, intensity]
+      properties:
+        title: { type: string }
+        idea_prompt: { type: string }
+        platform: { type: string, enum: [shorts, tiktok, reels] }
+        style_preset: { type: string }
+        duration_target: { type: integer, minimum: 10, maximum: 90 }
+        intensity: { type: integer, minimum: 1, maximum: 10 }
+        character_id: { $ref: '#/components/schemas/UUID' }
+    ProjectIdResponse:
+      type: object
+      required: [project_id]
+      properties:
+        project_id: { $ref: '#/components/schemas/UUID' }
+    DirectorGenerateRequest:
+      type: object
+      required: [project_id]
+      properties:
+        project_id: { $ref: '#/components/schemas/UUID' }
+    DirectorGenerateResponse:
+      type: object
+      required: [hook, voiceover_script, scene_plan, titles, hashtags, thumbnail_prompt]
+      properties:
+        hook: { type: string }
+        voiceover_script:
+          type: array
+          items: { type: string }
+        scene_plan:
+          type: array
+          items:
+            type: object
+            required: [scene_number, scene_title, scene_goal, script_line, visual_prompt, camera_notes, duration_sec]
+            properties:
+              scene_number: { type: integer }
+              scene_title: { type: string }
+              scene_goal: { type: string }
+              script_line: { type: string }
+              visual_prompt: { type: string }
+              camera_notes: { type: string }
+              duration_sec: { type: integer }
+        titles:
+          type: array
+          items: { type: string }
+        hashtags:
+          type: array
+          items: { type: string }
+        thumbnail_prompt: { type: string }
+    SceneRequest:
+      type: object
+      required: [scene_id]
+      properties:
+        scene_id: { $ref: '#/components/schemas/UUID' }
+    StoryboardBatchRequest:
+      type: object
+      required: [project_id]
+      properties:
+        project_id: { $ref: '#/components/schemas/UUID' }
+    JobIdsResponse:
+      type: object
+      required: [job_ids]
+      properties:
+        job_ids:
+          type: array
+          items: { $ref: '#/components/schemas/UUID' }
+    RegenerateSceneRequest:
+      type: object
+      required: [scene_id, change_request]
+      properties:
+        scene_id: { $ref: '#/components/schemas/UUID' }
+        change_request: { type: string }
+    CaptionsRequest:
+      type: object
+      required: [project_id, style]
+      properties:
+        project_id: { $ref: '#/components/schemas/UUID' }
+        style: { type: string, enum: [bold_kinetic, clean_minimal, cinematic_subtitle] }
+    ExportCreateRequest:
+      type: object
+      required: [project_id, format, include_captions, include_audio]
+      properties:
+        project_id: { $ref: '#/components/schemas/UUID' }
+        format: { type: string, enum: [vertical_1080x1920] }
+        include_captions: { type: boolean }
+        include_audio: { type: boolean }
+    JobStatusResponse:
+      type: object
+      required: [job_id, type, status, retry_count]
+      properties:
+        job_id: { $ref: '#/components/schemas/UUID' }
+        type: { type: string }
+        status: { type: string, enum: [queued, running, succeeded, failed] }
+        retry_count: { type: integer }
+        error_message: { type: string, nullable: true }
+        started_at: { type: string, format: date-time, nullable: true }
+        finished_at: { type: string, format: date-time, nullable: true }
+paths:
+  /api/projects/create:
+    post:
+      summary: Create a project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateProjectRequest' }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ProjectIdResponse' }
+  /api/director/generate:
+    post:
+      summary: Generate director plan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/DirectorGenerateRequest' }
+      responses:
+        '200':
+          description: Generated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DirectorGenerateResponse' }
+  /api/storyboard/generate-images:
+    post:
+      summary: Generate keyframes for all scenes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/StoryboardBatchRequest' }
+      responses:
+        '200':
+          description: Job IDs queued
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/JobIdsResponse' }
+  /api/scene/generate-image:
+    post:
+      summary: Generate a keyframe for one scene
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SceneRequest' }
+      responses:
+        '202': { description: Accepted }
+  /api/storyboard/generate-videos:
+    post:
+      summary: Generate clips for all scenes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/StoryboardBatchRequest' }
+      responses:
+        '200':
+          description: Job IDs queued
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/JobIdsResponse' }
+  /api/scene/generate-video:
+    post:
+      summary: Generate one scene clip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SceneRequest' }
+      responses:
+        '202': { description: Accepted }
+  /api/scene/regenerate:
+    post:
+      summary: Regenerate scene with change request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RegenerateSceneRequest' }
+      responses:
+        '202': { description: Accepted }
+  /api/captions/generate:
+    post:
+      summary: Generate captions for project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CaptionsRequest' }
+      responses:
+        '202': { description: Accepted }
+  /api/export/create:
+    post:
+      summary: Create final export
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ExportCreateRequest' }
+      responses:
+        '202': { description: Accepted }
+  /api/jobs/{id}:
+    get:
+      summary: Get job status
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { $ref: '#/components/schemas/UUID' }
+      responses:
+        '200':
+          description: Current job status
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/JobStatusResponse' }
